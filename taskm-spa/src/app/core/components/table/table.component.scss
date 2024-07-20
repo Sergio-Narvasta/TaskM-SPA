@@ -1,0 +1,43 @@
+.task-row {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(115, 116, 118);
+    box-shadow: 0 4px 4px #0000004d, 0 -1px 3px #0000004d;
+    border-radius: 15px;
+    background-color: white;
+}
+
+  .f-row{
+    display: flex;
+    flex-direction: row;
+  }
+  .f-col{
+    display: flex;
+    flex-direction: column;
+  }
+  .col-actions button:hover {
+    transform: scale(1.2);
+  }
+  
+  .yellow-icon {
+    color: yellow; 
+  }
+  .green-icon {
+    color: rgb(5, 210, 5); 
+  }
+  .portfolio-icon {
+    color: #A77A23;
+  }
+  .blue-icon{
+    color: blue;
+  }
+  .red-icon {
+    color: #fa1100;
+  }
+  .orange-icon {
+    color: #c84e12; 
+  }

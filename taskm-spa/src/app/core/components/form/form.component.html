@@ -1,0 +1,90 @@
+<div class="top-bar-app d-flex flex-column align-items-center">
+    <h1 class="title-app mt-3">{{ editingTask ? 'Editar Tarea' : 'Nueva Tarea' }}</h1>
+</div>
+<div class="vh-100 d-flex justify-content-center mb-2 container-form">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="d-flex flex-column align-items-center mt-2 w-75 taskform">
+        <div class="row mb-2 ms-4 w-100" style="margin-top: 80px;">
+            <div style="width: 43%; margin-left: 6.5%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="name" required>
+                        <mat-error *ngIf="taskForm.get('name')?.hasError('required')">El nombre es requerido</mat-error>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div style="width: 21.5%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Estado</mat-label>
+                        <mat-select formControlName="status" required>
+                            <mat-option *ngFor="let status of statusList" [value]="status.value">
+                                <mat-icon [ngClass]="status.iconClass">{{ status.icon }}</mat-icon>
+                                {{ status.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div style="width: 21.5%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Fecha </mat-label>
+                        <input matInput formControlName="expiredDate">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 ms-4 mb-2">
+            <div>
+                <mat-form-field class="w-100">
+                    <mat-label>Descripción</mat-label>
+                    <input matInput formControlName="description">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mb-2 ms-4 w-100">
+            <div style="width: 33%; margin-left: 6.5%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Prioridad</mat-label>
+                        <mat-select formControlName="priority" required>
+                            <mat-option *ngFor="let item of priorityList" [value]="item.value">
+                                <mat-icon [ngClass]="item.iconClass">{{ item.icon }}</mat-icon>
+                                {{ item.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div style="width: 33%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Empresa</mat-label>
+                        <mat-select formControlName="priority" required>
+                            <mat-option *ngFor="let item of businessList" [value]="item.value">
+                                <mat-icon class="portfolio-icon">work</mat-icon>
+                                {{ item.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div style="width: 20%;">
+                <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Orden</mat-label>
+                        <input matInput formControlName="order">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row align-items-center" style="margin-top: 50px;">
+            <button class="btn btn-secondary btn-gotoback" (click)="goToBack()" >Volver</button>
+            <button class="btn btn-app-primary" type="submit">{{ editingTask ? 'Actualizar' : 'Registrar' }}</button>     
+        </div>
+    </form>
+</div>
+
+
+  

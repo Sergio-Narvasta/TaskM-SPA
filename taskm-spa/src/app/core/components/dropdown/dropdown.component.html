@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+  <mat-label>Estado</mat-label>
+  <mat-select [formControl]="control" name="status" required>
+    <mat-option *ngFor="let status of statuses" [value]="status.value">
+      <mat-icon [ngClass]="status.iconClass">{{ status.icon }}</mat-icon>
+      {{ status.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+

@@ -1,0 +1,42 @@
+<div class="f-col mt-4 w-100">
+  <div *ngFor="let item of tasks" class="task-container">
+    <p class="fw-bold">{{ item.expiredDateStr }}</p>
+    <div *ngFor="let task of item.tasks" class="task-row">
+      <div class="f-col w-100">
+        <div class="f-row w-100">
+          <div class="ms-2 me-3">
+              <mat-icon [ngClass]="getPriorityClass(task.priority)">radio_button_checked</mat-icon> 
+          </div>
+          <div class="w-75">{{ task.name }}</div>
+          <button mat-icon-button color="primary" (click)="onEditTask(task.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="onDeleteTask(task.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <div class="f-row">
+          <div class="f-row me-5 ms-4"> 
+            <mat-icon class="portfolio-icon">work</mat-icon> 
+            <p class="ms-2">{{ task.business }}</p>
+          </div>
+          <div class="me-5">
+            <span *ngIf="task.status === 1" class="f-row">
+              <mat-icon class="yellow-icon">watch_later</mat-icon> 
+              <p class="ms-2">Pendiente</p>
+            </span>
+            <span *ngIf="task.status === 2" class="f-row">
+              <mat-icon class="green-icon">check_circle</mat-icon> 
+              <p class="ms-2">Completo</p>
+            </span>
+          </div>
+          <div class="f-row">
+            <mat-icon class="blue-icon">format_list_numbered</mat-icon>
+            <p class="ms-2">{{ task.order }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

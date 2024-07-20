@@ -1,0 +1,16 @@
+
+<div class="vh-100 d-flex flex-column align-items-center page-container">
+    <div class="d-flex flex-column mb-4 align-items-center box-top w-75">
+        <h1 class="title-app mt-2"> ¡Bienvenido a Mi Lista de Tareas ! </h1> 
+        <h4 class="mt-4 mb-4">En esta app podra tener el control de sus tareas diarias.</h4>
+    </div>
+    <div class="w-75 d-flex flex-row ">
+      <h1 class="ms-4 title-text">Mis Tareas</h1>
+      <div class="w-50"></div>
+      <button class="btn btn-app-primary mb-3" (click)="goToCreate()">Agregar Tarea</button>
+    </div>
+    <div class="w-75 d-flex flex-column mb-2"> 
+      <app-table [tasks]="tasklist"></app-table>
+    </div>
+</div>
+

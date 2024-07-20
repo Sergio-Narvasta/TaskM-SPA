@@ -1,0 +1,18 @@
+<link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../node_modules/toastr/toastr.scss">
+<main class="main">
+  <div class="content">
+    <router-outlet />
+  </div>
+</main>
+<script src="../../node_modules/toastr/toastr.js"></script>
+<script>
+  toastr.options = {
+    closeButton: true,
+    progressBar: true,
+    preventDuplicates: true,
+    positionClass: 'toast-top-right'
+  };
+</script>
+
+
