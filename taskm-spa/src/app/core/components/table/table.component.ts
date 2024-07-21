@@ -19,11 +19,11 @@ export class TableComponent {
     private toastr: ToastrService
   ) { }
 
-  onEditTask(id: number): void {
+  onEditTask(id: string): void {
     this.router.navigate([`/edit`, id]);
   }
 
-  onDeleteTask(id: number): void {
+  onDeleteTask(id: string): void {
     this.taskService.deleteTask(id).subscribe((response : ResponseModel) => {
       if(response.status){
         this.toastr.success(response.message);

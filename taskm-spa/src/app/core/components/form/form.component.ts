@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Task } from '../../models/task.create.model';
+import { Task } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 import { ResponseModel } from '../../models/response.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TaskCreateDto } from '../../models/task.create.model';
 
 @Component({
   selector: 'app-form',
@@ -34,7 +35,7 @@ export class FormComponent {
   ) {
     this.selectedStatus = 1;
     this.taskForm = this.fb.group({
-      id: [0],
+      id: [''],
       name: ['', Validators.required],
       description: [''],
       status: new FormControl(1, Validators.required),
@@ -62,7 +63,7 @@ export class FormComponent {
 
   onSubmit(): void {
     if (this.taskForm.valid) {
-      const taskCreate: Task = {
+      const taskCreate: TaskCreateDto = {
         id: this.taskForm.value.id || 0,
         name: this.taskForm.value.name,
         description: this.taskForm.value.description,
@@ -74,7 +75,7 @@ export class FormComponent {
         createDate: this.taskForm.value.createDate
       };
 
-      const request = taskCreate.id === 0 ?
+      const request = taskCreate.id === '' ?
         this.taskService.insertTask(taskCreate) :
         this.taskService.updateTask(taskCreate);
 
@@ -100,11 +101,11 @@ export class FormComponent {
     }
   }
 
-  loadTask(id: number): void {
+  loadTask(id: string): void {
     this.taskService.getTaskById(id).subscribe(task => {
       this.editingTask = task;
       this.taskForm.patchValue({
-        id: task.id,
+        id: task.idString,
         name: task.name,
         description: task.description,
         status: task.status,

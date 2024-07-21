@@ -8,17 +8,17 @@
               <mat-icon [ngClass]="getPriorityClass(task.priority)">radio_button_checked</mat-icon> 
           </div>
           <div class="w-75">{{ task.name }}</div>
-          <button mat-icon-button color="primary" (click)="onEditTask(task.id)">
+          <button mat-icon-button color="primary" (click)="onEditTask(task.idString)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="onDeleteTask(task.id)">
+          <button mat-icon-button color="warn" (click)="onDeleteTask(task.idString)">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
         <div class="f-row">
           <div class="f-row me-5 ms-4"> 
             <mat-icon class="portfolio-icon">work</mat-icon> 
-            <p class="ms-2">{{ task.business }}</p>
+            <p class="ms-2">{{ task.businessStr }}</p>
           </div>
           <div class="me-5">
             <span *ngIf="task.status === 1" class="f-row">

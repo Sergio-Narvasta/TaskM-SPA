@@ -1,16 +1,14 @@
-import { Task } from "./task.create.model";
+import { Task } from "./task.model";
 
 export class TaskDto {
   expiredDate: Date;
-  count: number;
   tasks: Task[];
   expiredDateStr: string;
 
-  constructor(expiredDate: Date, expiredDateStr:string, count: number, tasks: Task[] ) {
+  constructor(expiredDate: Date, expiredDateStr:string, tasks: Task[] ) {
       this.expiredDate = expiredDate;
-      this.count = count;
       this.tasks = tasks;
-      this.expiredDateStr=expiredDateStr ;
+      this.expiredDateStr= expiredDateStr ;
   }
 }
 
