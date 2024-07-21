@@ -64,7 +64,7 @@ export class FormComponent {
   onSubmit(): void {
     if (this.taskForm.valid) {
       const taskCreate: TaskCreateDto = {
-        id: this.taskForm.value.id || 0,
+        id: this.taskForm.value.id || '',
         name: this.taskForm.value.name,
         description: this.taskForm.value.description,
         expiredDate: this.taskForm.value.expiredDate,

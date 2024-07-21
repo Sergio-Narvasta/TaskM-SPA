@@ -26,7 +26,11 @@ searchDto : SearchDto;
 
   getTaskList() {
     this.taskService.getTaskList(this.searchDto).subscribe((response: TaskListDto) => {
-      this.tasklist = response.data;
+      this.tasklist = response.data.sort((a, b) => {
+        const dateA = new Date(a.expiredDate).getTime();
+        const dateB = new Date(b.expiredDate).getTime();
+        return dateA - dateB;
+      });
     })
   }
 
