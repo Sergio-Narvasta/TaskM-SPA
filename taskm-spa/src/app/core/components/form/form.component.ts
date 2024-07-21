@@ -121,7 +121,7 @@ export class FormComponent {
   getStatusList(){
     this.statusList = [
       { value: 1, viewValue: 'Pendiente', icon: 'watch_later', iconClass: 'pending' },
-      { value: 2, viewValue: 'Completo', icon: 'check_circle', iconClass: 'complete' }
+      { value: 3, viewValue: 'Completo', icon: 'check_circle', iconClass: 'complete' }
     ];
   }
   getPriorityList(){
